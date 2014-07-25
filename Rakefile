@@ -55,7 +55,7 @@ task :cookbooks_install do
     data_bag_item.puts content
   end
 
-  berks_vendor = Mixlib::ShellOut.new("bundle exec berks vendor vendor/cookbooks") # -b #{File.join("site-cookbooks", "test_api_app", "Berksfile")}")#, File.join(cfg_dir, "site-cookbooks/ccbind")
+  berks_vendor = Mixlib::ShellOut.new("berks vendor vendor/cookbooks") # -b #{File.join("site-cookbooks", "test_api_app", "Berksfile")}")#, File.join(cfg_dir, "site-cookbooks/ccbind")
   berks_vendor.run_command
 
 end
@@ -71,7 +71,7 @@ task :berks_vendor do
   # puts contents['test_api']['revision']
   #  contents.each do |k,v|
   #    v.each do |y|
-  berks_vendor = Mixlib::ShellOut.new("bundle exec berks vendor vendor/cookbooks -b #{File.join("site-cookbooks", "test_api_app", "Berksfile")}")#, File.join(cfg_dir, "site-cookbooks/ccbind")
+  berks_vendor = Mixlib::ShellOut.new("berks vendor vendor/cookbooks -b #{File.join("site-cookbooks", "test_api_app", "Berksfile")}")#, File.join(cfg_dir, "site-cookbooks/ccbind")
   berks_vendor.run_command
   #  end
 
@@ -118,21 +118,21 @@ task :skeleton do
   end
 end
 
-desc "Run all tests"
-task :test => []
-task :default => :test
+#desc "Run all tests"
+#task :test => []
+#task :default => :test
 
-begin
-  require "kitchen/rake_tasks"
-  Kitchen::RakeTasks.new
+#begin
+  #require "kitchen/rake_tasks"
+  #Kitchen::RakeTasks.new
 
-  desc "Alias for kitchen:all"
-  task :integration => "kitchen:all"
+  #desc "Alias for kitchen:all"
+  #task :integration => "kitchen:all"
 
-  task :test => [:cookbooks_install, :integration]
-rescue LoadError
-  puts ">>>>> Kitchen gem not loaded, omitting tasks" unless ENV['CI']
-end
+  #task :test => [:cookbooks_install, :integration]
+#rescue LoadError
+  #puts ">>>>> Kitchen gem not loaded, omitting tasks" unless ENV['CI']
+#end
 
 
 # desc "Checks for required dependencies."
