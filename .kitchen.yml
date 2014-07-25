@@ -1,0 +1,21 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: 11.8.2
+provisioner: chef_solo
+platforms:
+- name: ubuntu-12.04
+  driver_config:
+    box: opscode-ubuntu-12.04
+    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
+
+suites:
+- name: default
+  run_list: ["recipe[test_api_app::default]"]
+  #run_list: ["role[community_app]"]
+  attributes: {}
+  #data_bags_path: "test/data_bags"
+  data_bags_path: "data_bags"
+  #environments_path: "environments"
+  roles_path: "roles"
+  #cookbook_path: "vendor/cookbooks"

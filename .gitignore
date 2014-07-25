@@ -1,2 +1,8 @@
+Berksfile
+Berksfile.lock
+Gemfile.lock
+.kitchen/
+vendor/
+site-cookbooks/
 CURRENT_REVISION
 UPCOMING_REVISION
