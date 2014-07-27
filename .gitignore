@@ -6,3 +6,4 @@ vendor/
 site-cookbooks/
 CURRENT_REVISION
 UPCOMING_REVISION
+.bundle/
